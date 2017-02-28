@@ -12,9 +12,9 @@ router.get('/twatt', function(req, res, next) {
        'https://api.twitter.com/1.1/search/tweets.json?q='+req.query.q,
         process.env.APP_TOKEN, //test user token
         process.env.APP_SECRET, //test user secret
-       function (e, data, res){
+       function (e, data, respond){
          if (e) console.error(e);
-         console.log(require('util').inspect(data));
+         res.send(JSON.parse(data));
        });
    });
 
